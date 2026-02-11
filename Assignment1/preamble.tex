@@ -1,0 +1,72 @@
+% 1. Encoding and Core Language
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{csquotes}
+\usepackage{xcolor} % Loaded early to avoid conflicts with TikZ
+
+% 2. Math and Physics (Load before table packages)
+\usepackage{amsmath}
+\allowdisplaybreaks
+\usepackage{amssymb}
+\usepackage{amsfonts}
+
+% 3. Graphics and TikZ
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{positioning, arrows.meta, shapes.geometric, shadows, patterns}
+
+% 4. Bibliography (Must come before hyperref)
+\usepackage[
+    backend=biber, 
+    style=ieee,
+    maxnames=3,
+    giveninits=true, 
+    doi=true,
+    isbn=false
+]{biblatex}
+
+% 5. Tables (Specific order: array -> booktabs -> tabularx -> longtable -> xltabular)
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{colortbl}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{xltabular}
+\usepackage{pdflscape}
+\usepackage{float}
+
+% 6. Layout
+\usepackage{geometry}
+\geometry{left=3cm,right=3cm,top=3cm,bottom=3cm}
+\setlength{\parindent}{0pt}
+
+% 7. THE FINALE: Referencing (Order is mandatory!)
+% \usepackage{url}
+% \usepackage[
+%     unicode=true, 
+%     hidelinks, 
+%     colorlinks=true, 
+%     allcolors=blue,
+%     bookmarks=true,         % Enables bookmarks
+%     bookmarksnumbered=true, % Shows the section numbers in the navigation
+%     bookmarksopen=true      % Opens the sidebar by default when the PDF is opened
+% ]{hyperref}
+% \usepackage[capitalize, noabbrev]{cleveref}
+\usepackage[unicode=true]{hyperref} % enables use of metadata for pdfs and hyperlinks within a document
+\hypersetup{%colorlinks=true
+% activate this part for the boxes 
+colorlinks=false, %flag for prints
+pdfborder={0 0 1}, % thickness of box
+linkbordercolor={1 0 0},
+% activate this part to not have the boxes
+% hidelinks,  % this option would hide links for the print version of your thesis
+% linkcolor=red!35!black,    %definition of the link color
+% citecolor=green!35!black,  %definition of the cite color
+% urlcolor=magenta!35!black, %definition of the url color
+pdfauthor=Simon Kraft, % Optional: Specify the author of the pdf
+pdftitle=Assignment 1   % Optional: Specify the title within the pdf
+} 
+\usepackage[capitalize,noabbrev]{cleveref}
+% \usepackage{bookmark}
