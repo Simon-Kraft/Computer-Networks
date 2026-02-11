@@ -1,13 +1,13 @@
 # Fdb version 4
-["biber build/main"] 1770797653.11008 "build/main.bcf" "build/main.bbl" "build/main" 1770797656.35437 0
-  "build/main.bcf" 1770797656.25104 107865 07d299131996891a3662679371d89287 "pdflatex"
-  "references.bib" 1770797373.32839 730 b9fd85766f41ce44dad1c67c701a6246 ""
+["biber build/main"] 1770833541.62845 "build/main.bcf" "build/main.bbl" "build/main" 1770836335.57138 0
+  "build/main.bcf" 1770836335.43998 108060 c749ca6ae393b86f87d65f7576c0666e "pdflatex"
+  "references.bib" 1770832704.55665 943 01ca19099092d4ede20f34dd9f753ed8 ""
   (generated)
   "build/main.bbl"
   "build/main.blg"
   (rewritten before read)
-["pdflatex"] 1770797654.32133 "/Users/simonkraft/dev/Computer-Networks/Assignment1/main.tex" "build/main.pdf" "main" 1770797656.35461 0
-  "/Users/simonkraft/dev/Computer-Networks/Assignment1/main.tex" 1770797650.36155 18358 75f792cfc1b1d5256e1bbd59be4956ad ""
+["pdflatex"] 1770836330.48619 "/Users/simonkraft/dev/Computer-Networks/Assignment1/main.tex" "build/main.pdf" "main" 1770836335.57163 0
+  "/Users/simonkraft/dev/Computer-Networks/Assignment1/main.tex" 1770836324.63648 24669 9ad253429417c19b119f325af2fab228 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -184,6 +184,9 @@
   "/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/cbx/numeric-verb.cbx" 1463430410 2572 a3d826c7f13332f510994e94197e914a ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/lbx/english.lbx" 1711143581 40021 daa5a82ed0967f3ac4b77cb8384cac55 ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/booktabs/booktabs.sty" 1579038678 6078 f1cb470c9199e7110a27851508ed7a5c ""
+  "/usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption.sty" 1696191071 56128 c2ccf1a29d78c33bc553880402e4fb9a ""
+  "/usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption3.sty" 1696191071 72619 ee90b6612147680fd73c3b1406a74245 ""
+  "/usr/local/texlive/2025/texmf-dist/tex/latex/caption/ltcaption.sty" 1645391520 7418 021d7c4eb11bde94592761855a3d046e ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/cleveref/cleveref.sty" 1525128982 329481 7fc6b003158402a4c694bc0a1b729308 ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/colortbl/colortbl.sty" 1720383029 12726 67708fc852a887b2ba598148f60c3756 ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/csquotes/csquotes.cfg" 1429144587 7068 06f8d141725d114847527a66439066b6 ""
@@ -244,10 +247,15 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1742511206 5496777 dfac5a65ccd1b178961f799dec0d389d ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1742511275 3345741 0f9af419a904d10f03da3b9a3704f342 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "build/main.aux" 1770797656.24926 2201 ac966621fd2e45595287c64f17fcf420 "pdflatex"
-  "build/main.bbl" 1770797654.30774 3501 907d609c17f56ad2f769ea6945669dc6 "biber build/main"
-  "build/main.out" 1770797654.9933 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "build/main.run.xml" 1770797656.25153 2402 05765085d18e81025e591027ecbce8c4 "pdflatex"
+  "build/main.aux" 1770836335.438 3540 49e7e0b1af2e596ff2674744b0bebb2a "pdflatex"
+  "build/main.bbl" 1770833542.91991 4562 eb915ceaba89b048304a6dcd9cab9613 "biber build/main"
+  "build/main.out" 1770836331.28972 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "build/main.run.xml" 1770836335.44068 2402 05765085d18e81025e591027ecbce8c4 "pdflatex"
+  "dig/authoritative_server.png" 1770834873.30793 664123 c87517a1b4d4493a641ce8067047f068 ""
+  "dig/root_server.png" 1770834810.7839 988695 8075ca0e1cbfadfc538d0c6f22e93c18 ""
+  "dig/tld_server.png" 1770834845.44759 821960 a9c9a81814726f8dc0b416ae58e5b932 ""
+  "dig/trace_without_server.png" 1770834177.8372 1935512 88b523438e06b03329f4ba0dd9eaed96 ""
+  "dig/uni_bonn_trace.png" 1770835931.2674 1742685 0caee093f74b89d06937869038c415b4 ""
   "exercise2_img.png" 1770775541.1246 312076 33c3cc0f5606b21eff1837ba657bf4b2 ""
   "global_traceroute/11pm.png" 1770790768.43372 534083 21f8f9d41e684055ba6a3408dcd8cc5d ""
   "global_traceroute/1pm.png" 1770790776.31639 573503 8afda81b7d56a062e26d923af90881c9 ""
@@ -255,9 +263,9 @@
   "local_traceroute/11pm.png" 1770790734.21849 372421 0111f5577cd10e48c6c71e4e16950a17 ""
   "local_traceroute/12pm.png" 1770790740.9515 382035 e14d22a5bc693bbf8ff93a791c956a9e ""
   "local_traceroute/5pm.png" 1770790723.85762 399710 f57813a9a3311aec1d7e1a611f0a5684 ""
-  "main.tex" 1770797650.36155 18358 75f792cfc1b1d5256e1bbd59be4956ad ""
+  "main.tex" 1770836324.63648 24669 9ad253429417c19b119f325af2fab228 ""
   "network.tex" 1770768170.56289 1965 d0e58387fcfc2906a7b1496264c4827d ""
-  "preamble.tex" 1770792397.86827 2260 a38e10d38540b0987ba65429703864aa ""
+  "preamble.tex" 1770835646.76926 2281 3335efbc2aedb7a05d76c17b8d50fda8 ""
   (generated)
   "build/main.aux"
   "build/main.bcf"

@@ -301,7 +301,7 @@ Perform a traceroute between source and destination on the same continent at thr
 
     \includegraphics[width=0.85\textwidth]{local_traceroute/12pm.png}
 
-    \caption{Traceroute of \url{harvard.edu} for three different hours of the day.}
+    \caption{Traceroute of \href{www.harvard.edu}{harvard.edu} for three different hours of the day.}
     \label{fig:local-traceroute}
 \end{figure}
 
@@ -388,7 +388,7 @@ Perform a traceroute between source and destination on a different continent at 
 
     \includegraphics[width=0.85\textwidth]{global_traceroute/1pm.png}
 
-    \caption{Traceroute of \url{uni-bonn.de} for three different hours of the day.}
+    \caption{Traceroute of \href{www.uni-bonn.de}{uni-bonn.de} for three different hours of the day.}
     \label{fig:global-traceroute}
 \end{figure}
 
@@ -446,10 +446,131 @@ Use the HTTP/1.1 specification in RFC 2616~\cite{rfc2616} to answer the followin
 \textbf{Mechanism between Client and Server to close a persistent connection}
 
 \begin{itemize}
-    \item “If either the client or the server sends the close token in the connection header, that request becomes the last one for that connection”~\cite{rfc2616}
+    \item “If either the client or the server sends the close token in the connection header, that request becomes the last one for that connection” found on page 44~\cite{rfc2616}
     \item Once the closing header is sent, both parties understand that the TCP connection should be closed after the current message got fully transmitted
 \end{itemize}
 
+\textbf{Who can choose to close the connection?}
+
+\begin{itemize}
+    \item Both parties can always sent this header to signal the termination of the connection from their side, it is not restricted to only the server or only the client
+    \item Client might terminate the connection when it has finished all planed requests for this particular server
+    \item Server might terminate the connection when the connection has been idle for too long, so that it just takes up valuable resources to keep it open the whole time or same way if the server is approaching its maximum number of open connections
+\end{itemize}
+
+\subsection*{b)}
+
+\textbf{What encryption services are provided by HTTP?}
+
+\begin{itemize}
+    \item HTTP does not provide any encryption, it was designed as a plain text protocol where information is broken into packets of data that can easily be sniffed using free software
+    \item All communications in HTTP occur in plain text, including passwords, making them highly accessible and vulnerable for man-in-the-middle attacks
+    \item Every ISP on the way from the destination server to the source host can sniff and read the traffic, it can even inject content into the webpages without approval of the website owner (commonly in the form of advertising)~\cite{cloudflare_https}
+    \item HTTPS adds encryption so that the ISP can no longer sniff into the packet and maybe insert ads into it
+\end{itemize}
+
+\subsection*{c)}
+
+\textbf{Can a client open three or more simultaneous connections with a given server according to the RFC standard?}
+
+\begin{itemize}
+    \item No, according to this RFC, in HTTP/1.1 a Client should limit its number of simultaneous connections to 2 to a given server
+    \item “Clients that use persistent connections SHOULD limit the number of simultaneous connections that they maintain to a given server. A single-user client SHOULD NOT maintain more than 2 connections with any server or proxy” found on page 46~\cite{rfc2616}
+\end{itemize}
+
+\subsection*{d)}
+
+\textbf{Is it possible that one side starts closing a connection while the other side is transmitting data via this connection?}
+
+\begin{itemize}
+    \item Yes, it is possible that one side decides to close the connection while at the same time the other side tries to do a request, this occurrence is called ''asynchronous close event''
+    \item Both Clients and Servers should always watch whether the other side tries to end the connection at some point 
+    \item No matter if client, server or proxy, everyone should be able to recover from such an asynchronous close event
+    \begin{itemize}
+        \item Client software should just try to automatically reopen the connection and send the sequence of aborted requests again, if this sequence is idempotent, meaning that the side effects of performing $N > 0$ requests are the same as for performing only a single request, the methods GET, HEAD, PUT, and DELETE fulfill this property.
+        \item Non-idempotent methods must not automatically do this, but can ask the human operator whether he wants to submit the request again
+    \end{itemize}
+
+    \item Because of the propagation delay between Client and Server, this event can happen, where both parties at the same time decide to make a move 
+    \item ''A client, server, or proxy MAY close the transport connection at any time. For example, a client might have started to send a new request at the same time that the server has decided to close the "idle" connection. From the server's point of view, the connection is being closed while it was idle, but from the client's point of view, a request is in progress.'' found on page 46~\cite{rfc2616}
+\end{itemize}
+
+
+\section*{Exercise 5}
+
+In this problem, we use the useful dig tool to explore the hierarchy of DNS servers. A DNS server in the DNS hierarchy delegates a DNS query to a DNS server lower in the hierarchy, by sending back to the DNS client the name of that lower-level DNS server. 
+
+\subsection*{a)}
+
+Initiate a sequence of queries, starting from one of the root servers ([a-m].root-servers.net, for the IP address of your UNBC's webserver (\url{www.unbc.ca}).
+
+\bigskip
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{dig/trace_without_server.png}
+    \caption{Dig trace for UNBC webserver}
+    \label{fig:trace-without-server}
+\end{figure}
+
+Figure~\ref{fig:trace-without-server} shows the delegation chain: 
+
+\begin{itemize}
+    \item \textbf{Root DNS Server}: \texttt{a.root-servers.net} with IP address $198.41.0.4$
+    \item \textbf{TLD DNS Server}: \texttt{any.ca-servers.ca} with IP address $199.4.144.2$
+    \item \textbf{Authoritative DNS Server}: \texttt{ns1.d-zone.ca} with IP address $162.219.54.2$
+\end{itemize}
+
+\vspace{2em}
+
+\textbf{Alternative Approach}
+
+\bigskip
+
+Iteratively, query each server manually (use \texttt{@server} option of dig to include either the hostname or IP address), by the IP address provided from the query to the server higher in the hierarchy. Start with a query to the root server.
+
+\begin{center}
+    \centering
+
+    \textbf{Root DNS Server}
+
+    \vspace{0.5em}
+
+    \includegraphics[width=0.5\textwidth]{dig/root_server.png}
+
+    \textbf{TLD DNS Server}
+
+    \vspace{0.5em}
+
+    \includegraphics[width=0.5\textwidth]{dig/tld_server.png}
+
+    \textbf{Authoritative DNS Server}
+
+    \vspace{0.5em}
+
+    \includegraphics[width=0.5\textwidth]{dig/authoritative_server.png}
+
+    \captionof{figure}{Manual iterative DNS query from root server to authoritative name server.}
+\end{center}
+
+\subsection*{b)}
+
+Repeat part a) for the webserver of University of Bonn, i.e. \url{www.uni-bonn.de}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{dig/uni_bonn_trace.png}
+    \caption{Dig trace for University of Bonn webserver}
+    \label{fig:trace-without-server-bonn}
+\end{figure}
+
+Figure~\ref{fig:trace-without-server-bonn} shows the delegation chain: 
+
+\begin{itemize}
+    \item \textbf{Root DNS Server}: \texttt{m.root-servers.net} with IP address $202.12.27.33$
+    \item \textbf{TLD DNS Server}: \texttt{z.nic.de} with IP address $194.246.96.1$
+    \item \textbf{Authoritative DNS Server}: \texttt{unibn-dns.uni-koeln.de} with IP address $134.95.48.166$
+\end{itemize}
 
 \printbibliography
 
