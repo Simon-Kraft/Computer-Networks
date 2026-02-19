@@ -15,6 +15,10 @@
     \large \textbf{CPSC 644 - Computer Networks} \\
 
     \huge \textbf{Research Proposal} \\
+
+    \vspace{0.5em}
+
+    \large \textit{AI-Driven Network Management and Self-Healing Networks}
 }
 
 \author{
@@ -31,53 +35,97 @@
 
 \date{\today}
 
+
+\defbibenvironment{itemized}
+  {\itemize
+     {}
+     {\setlength{\leftmargin}{2em}%
+      \setlength{\itemindent}{-2em}%
+      \setlength{\itemsep}{\bibitemsep}%
+      \setlength{\parsep}{\bibparsep}}}
+  {\enditemize}
+  {\item}
+
+  \defbibenvironment{enumerated}
+  {\enumerate
+     {}
+     {\setlength{\leftmargin}{3.5em}   % Increased from 2.5em to give more total room
+      \setlength{\labelsep}{1.5em}    % This adds the "air" specifically after the number
+      \setlength{\itemindent}{0pt}
+      \setlength{\itemsep}{\bibitemsep}
+      \setlength{\parsep}{\bibparsep}}}
+  {\endenumerate}
+  {\item}
+
+\nocite{*}
+
 \begin{document}
 
 \maketitle
 \newpage
 
-\section{Topic Choice}
+% \section{Topic Choice}
 
-For my research paper I have chosen the topic ''AI-Driven Network Management and Self-Healing Networks''.
+% For my research paper I have chosen the topic \textit{AI-Driven Network Management and Self-Healing Networks}.
 
 \section{Description}
 
-Defining this research topic requires defining two closely related principles and also identifying their differences. First, ''AI-Driven Network Management'', often referred to as ''AI Networking'', is a generic term that describes the integration of Artificial Intelligence (AI) and Machine Learning (ML) into the area of computer networks with the goal of improving efficiency and effectiveness. This includes areas such as dynamic resource allocation, fault detection and analysis, and security enhancement~\cite{IntegrationofAIinNetworkManagement_2024}. Second, ''Self-Healing Networks'' represent networks that can autonomously detect, diagnose, and resolve network failures in real time without the need for human intervention. This is often achieved by using AI or Machine Learning (ML) in a closed-loop system to continuously monitor performance and quickly detect disruptions or irregularities and responding by dynamically rerouting traffic, adjusting configurations, or isolating problematic components~\cite{Stone2025}. \\
+For my research paper I have chosen the topic \textit{AI-Driven Network Management and Self-Healing Networks}. \\
 
-Both principles differ in their objective. While AI Networking tries to integrate \textit{intelligence} into the network to make it more efficient and secure, Self-Healing Networks aim to make networks self-sustaining and more resilient. For this reason, Self-Healing Networks could be seen as a subset of AI Networking. 
+Defining this research topic requires defining two closely related principles and also identifying their differences. First, AI-Driven Network Management (AINM), often referred to as AI Networking (AIN), is a generic term that describes the integration of Artificial Intelligence (AI) and Machine Learning (ML) into the area of computer networks with the goal of improving efficiency and effectiveness. This includes areas such as dynamic resource allocation, fault detection and analysis, and security enhancement~\cite{IntegrationofAIinNetworkManagement_2024}. Second, Self-Healing Networks (SHN) represent networks that can autonomously detect, diagnose, and resolve network failures in real time without the need for human intervention. This is often achieved by using AI or Machine Learning (ML) in a closed-loop system to continuously monitor performance and quickly detect disruptions or irregularities and responding by dynamically rerouting traffic, adjusting configurations, or isolating problematic components~\cite{Stone2025}. \\
+
+Although these concepts are closely related, they differ in their objective. AIN tries to integrate \textit{intelligence} into the network to make it more efficient and secure, whereas SHN focus on building self-sustaining and more resilient networks. Consequently, SHN could be seen as a subset of the broader area of AIN. 
 
 \section{Motivation}
 
 Modern computer networks are constantly growing and becoming more complex, exceeding the capabilities of human oversight by far. Therefore, rule-based and manual methods for network monitoring are insufficient for the scale, complexity, and sophistication of today's networks, that connect thousands of devices simultaneously~\cite{China2025}. According to a report from Dynatrace, a company that develops AI solutions for observability, the average multicloud environment spans 12 different services and platforms~\cite{Dynatrace2024}. Furthermore, their report finds that more than 80\% of technology leaders say that the effort their teams spent on maintaining monitoring tools and preparing data for analysis steals time form innovation. \\
 
-These circumstances highlight the need for AI Networking and Self-Healing Networks to analyze large amounts of data in real-time and identifying and address potential network issues before they grow into larger problems~\cite{Tailscale2026}. Integrating these mechanisms reduces costs by optimizing network resources, decreasing operational downtime, and automating routine tasks to free up IT staff for higher-level network management jobs~\cite{China2025}. \\
+These circumstances highlight the need for AIN and SHN to analyze large amounts of data in real-time to identify and address potential network issues before they grow into larger problems~\cite{Tailscale2026}. Integrating these mechanisms reduces costs by optimizing network resources, decreasing operational downtime, and automating routine tasks to free up IT staff for higher-level network management jobs~\cite{China2025}. \\
 
-However, integrating AI into the area of network management poses significant challenges that shouldn't be underestimated. For instance, data privacy concerns, high investment costs for infrastructure building and skilled personnel, as well as the risk of handing over the control for critical enterprise infrastructure to an AI which does not necessarily chooses the correct decision in each situation is dangerous~\cite{Tailscale2026}.
+However, integrating AI into network management poses significant challenges. These include data privacy concerns, high investment costs for infrastructure, and a shortage of skilled personnel. Furthermore, handing over the control of critical enterprise infrastructure to an autonomous system, introduces serious risks. An AI may not always choose the optimal decision in edge-case scenarios that were not present during training which could potential lead to cascading network failures~\cite{Tailscale2026}.
 
 
 \section{Proposed Paper Outline}
 
 \subsubsection*{Abstract}
 
+The abstract provides a succinct summary of the transition from manual network administration to autonomous AIN and SHN frameworks. It highlights the shift towards ML-based solutions employing Graph Neural Networks (GNN), Transformers, and Reinforcement Learning (RL). Furthermore it summarizes predictive networking and incident management. It concludes by previewing future research directions.
+
 \subsubsection*{Introduction}
+
+The introduction defines AI-Driven Networking~\cite{IntegrationofAIinNetworkManagement_2024} and SHN~\cite{Stone2025} in more detail for a general audience. It provides motivation by explaining how automation can lower operational costs, minimize downtime, and strengthen network security. The section highlights the need for proactive fault mitigation in modern complex networks. Finally, it outlines the structure of the research paper.
 
 \subsubsection*{Literature Survey}
 
+The literature survey reviews the transition from manual oversight to an AI-Driven networking paradigm. It examines Zero Touch architectures for network automation~\cite{zeroTouch} and foundational ML frameworks for the improvement of networks~\cite{Boutaba2018,8255757}. Lastly, emerging SHN within the cellular domain are reviewed~\cite{selfHealingforEmergingCellular}.
+
 \subsubsection*{Real-World Usage}
+
+This section evaluates practical implementations ranging from Reinforcement Learning (RL) for congestion control~\cite{ns3meetsOpenAIgym,ağlamazlar2026deepreinforcementlearningbasedtcp} to Graph Neural Networks for network optimization~\cite{Rusek_2020}. Furthermore, fault detection using transformer models~\cite{make7030067} and unsupervised anomaly detection methods~\cite{AIOpsAnomalyDetect} are reviewed. Additionally, a closed-loop system without human intervention is reviewed~\cite{selfHealingNetworkstoResolve}.
 
 \subsubsection*{Emerging Trends}
 
+This section investigates future trends in AIN such as resource management in 6G networks~\cite{ALHASHIMI20253585} and the integration of large language models (LLM) for incident management~\cite{MicrosoftHolistic}. Finally, Network Digital Twins (NDT) frameworks for proactive simulation of networks are investigated~\cite{DigitalTwinNetworks}.
+
 \subsubsection*{Conclusion}
 
-\subsubsection*{Bibliography}
+The conclusion summarizes the findings from the foregoing literature survey and case studies to provide a holistic perspective on AIN and SHN. It evaluates performance benefits and associated risks of autonomous methods. Finally, the section outlines remaining research gaps and a strategic outlook for the future is given. 
 
-
-\section{Bibliography}
 
 \newpage
 
-\printbibliography
+\section{Bibliography}\label{sec:bibliography}
 
+This section lists the initial core bibliography that will form the foundation of my research paper. This list will be further extended during the writing phase of my research paper.
+
+\vspace{1em}
+
+
+\printbibliography[keyword=outline, heading=none]
+
+\newpage
+
+\printbibliography[keyword=presection]
 
 
 \newpage
